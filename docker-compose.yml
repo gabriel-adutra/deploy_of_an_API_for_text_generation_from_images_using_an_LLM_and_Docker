@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  vqa-api:
+    build: .
+    ports:
+      - "3000:3000"
+    container_name: vqa-container
+    volumes:
+      - ./backend:/app/backend  # Mount source code for development
+    environment:
+      - PYTHONUNBUFFERED=1
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
