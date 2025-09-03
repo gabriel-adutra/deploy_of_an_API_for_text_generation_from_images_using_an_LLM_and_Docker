@@ -169,6 +169,21 @@ Submit a question and image for visual question answering.
 
 ## 🔧 Development
 
+### Using Docker (Individual Container)
+
+For direct Docker deployment:
+
+```bash
+# Build the Docker image
+docker build -t vqa-api:latest .
+
+# Run the container
+docker run -dit --name vqa-container -p 3000:3000 vqa-api:latest
+
+# Check if the API is running
+docker logs vqa-container
+```
+
 ### Using Docker Compose (Recommended for Development)
 
 The project includes a `docker-compose.yml` file for easy development setup.
@@ -183,8 +198,6 @@ This will:
 - Start the container with volume mounting for development
 - Set up health checks
 - Configure automatic restart
-
-
 
 ### Stopping the Services
 
