@@ -71,8 +71,6 @@ This will return API information and available endpoints.
 ./backend/api/tests/testElephantColor.sh
 ```
 
-**Note**: Make sure you have the test images (`car.png`, `elephant.png`, `dog.png`) in the same directory as the test scripts.
-
 ### Using curl (Cross-platform)
 
 #### Test the Root Endpoint
