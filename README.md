@@ -20,7 +20,7 @@ A REST API that uses ViLT (Vision-and-Language Transformer) to answer questions 
 
 #### 1. Clone the Repository
 ```bash
-git clone <repository-url>
+git clone https://github.com/gabriel-adutra/deploy_of_an_API_for_text_generation_from_images_using_an_LLM_and_Docker.git
 cd deploy_of_an_API_for_text_generation_from_images_using_an_LLM_and_Docker
 ```
 
@@ -71,7 +71,7 @@ This will return API information and available endpoints.
 ./backend/api/tests/testElephantColor.sh
 ```
 
-**Note**: Make sure you have the test images (`imagem1.png`, `imagem2.png`, `imagem3.jpg`) in the same directory as the test scripts.
+**Note**: Make sure you have the test images (`car.png`, `elephant.png`, `dog.png`) in the same directory as the test scripts.
 
 ### Using curl (Cross-platform)
 
@@ -86,19 +86,19 @@ curl -X GET "http://localhost:3000/" -H "accept: application/json"
 curl -X POST "http://localhost:3000/vqa" \
   -H "accept: application/json" \
   -F "question=Which color is the car in the image?" \
-  -F "image=@imagem1.png"
+  -F "image=@car.png"
 
 # Test with dog image
 curl -X POST "http://localhost:3000/vqa" \
   -H "accept: application/json" \
   -F "question=What is the dog doing in the image?" \
-  -F "image=@imagem3.jpg"
+  -F "image=@dog.png"
 
 # Test with elephant image
 curl -X POST "http://localhost:3000/vqa" \
   -H "accept: application/json" \
   -F "question=Which color is the elephant in the image?" \
-  -F "image=@imagem2.png"
+  -F "image=@elephant.png"
 ```
 
 ## 📡 API Endpoints
