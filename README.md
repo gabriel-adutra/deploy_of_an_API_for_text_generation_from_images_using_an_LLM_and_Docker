@@ -43,61 +43,49 @@ You should see output indicating the FastAPI server is running on port 3000.
 
 **Note**: The first run will download the ViLT model (~1.5GB), which may take a few minutes.
 
+#### 5. Stop the Container (when needed)
+```bash
+docker stop vqa-container
+docker rm vqa-container
+```
+
 ## 🧪 Testing the API
 
-### Using Test Scripts (Linux/macOS)
+The project includes pre-configured test scripts with sample images for easy testing.
 
+### Prerequisites
 Make sure the test scripts are executable:
 ```bash
 chmod +x backend/api/tests/*.sh
 ```
 
+### Available Test Scripts
+
 #### Test the Root Endpoint
 ```bash
 ./backend/api/tests/testRoot.sh
 ```
-
-This will return API information and available endpoints.
+Returns API information and available endpoints.
 
 #### Test Visual Question Answering
 ```bash
-# Test with car image
+# Test car color detection
 ./backend/api/tests/testCarColor.sh
+# Expected response: {"answer":"yellow"}
 
-# Test with dog image
+# Test dog action recognition
 ./backend/api/tests/testDogAction.sh
+# Expected response: {"answer":"eating"}
 
-# Test with elephant image
+# Test elephant color detection
 ./backend/api/tests/testElephantColor.sh
+# Expected response: {"answer":"green"}
 ```
 
-### Using curl (Cross-platform)
-
-#### Test the Root Endpoint
-```bash
-curl -X GET "http://localhost:3000/" -H "accept: application/json"
-```
-
-#### Test Visual Question Answering
-```bash
-# Test with car image
-curl -X POST "http://localhost:3000/vqa" \
-  -H "accept: application/json" \
-  -F "question=Which color is the car in the image?" \
-  -F "image=@car.png"
-
-# Test with dog image
-curl -X POST "http://localhost:3000/vqa" \
-  -H "accept: application/json" \
-  -F "question=What is the dog doing in the image?" \
-  -F "image=@dog.png"
-
-# Test with elephant image
-curl -X POST "http://localhost:3000/vqa" \
-  -H "accept: application/json" \
-  -F "question=Which color is the elephant in the image?" \
-  -F "image=@elephant.png"
-```
+### Sample Images Included
+- `car.png` - Yellow car for color detection testing
+- `dog.png` - Dog eating for action recognition testing  
+- `elephant.png` - Green elephant for color detection testing
 
 ## 📡 API Endpoints
 
@@ -153,87 +141,18 @@ Submit a question and image for visual question answering.
 │   └── api/
 │       ├── app.py              # FastAPI application
 │       ├── vqa_service.py      # VQA business logic
-│       └── tests/              # Test scripts
+│       └── tests/              # Test scripts and sample images
 │           ├── testRoot.sh     # Test root endpoint
 │           ├── testCarColor.sh # Test car color question
 │           ├── testDogAction.sh # Test dog action question
-│           └── testElephantColor.sh # Test elephant color question
+│           ├── testElephantColor.sh # Test elephant color question
+│           ├── car.png         # Sample car image (yellow)
+│           ├── dog.png         # Sample dog image (eating)
+│           └── elephant.png    # Sample elephant image (green)
 ├── Dockerfile                  # Container configuration
-├── docker-compose.yml          # Development environment
-
 ├── requirements.txt            # Python dependencies
 └── README.md                  # This file
 ```
-
-## 🔧 Development
-
-### Using Docker (Individual Container)
-
-For direct Docker deployment:
-
-```bash
-# Build the Docker image
-docker build -t vqa-api:latest .
-
-# Run the container
-docker run -dit --name vqa-container -p 3000:3000 vqa-api:latest
-
-# Check if the API is running
-docker logs vqa-container
-```
-
-### Using Docker Compose (Recommended for Development)
-
-The project includes a `docker-compose.yml` file for easy development setup.
-
-Run the following command:
-```bash
-docker-compose up -d
-```
-
-This will:
-- Build the Docker image
-- Start the container with volume mounting for development
-- Set up health checks
-- Configure automatic restart
-
-### Stopping the Services
-
-```bash
-# Stop Docker Compose
-docker-compose down
-
-# Stop Docker container
-docker stop vqa-container
-docker rm vqa-container
-```
-
-### Troubleshooting
-
-#### Common Issues
-
-1. **Port 3000 already in use:**
-   ```bash
-   # Find process using port 3000
-   lsof -i :3000  # macOS/Linux
-   netstat -ano | findstr :3000  # Windows
-   
-   # Kill the process or use a different port
-   docker run -dit --name vqa-container -p 3001:3000 vqa-api:latest
-   ```
-
-2. **Model download fails:**
-   - Check internet connection
-   - Ensure you have enough disk space (~2GB)
-   - Try running with `--no-cache` flag:
-     ```bash
-     docker build --no-cache -t vqa-api:latest .
-     ```
-
-3. **Permission denied on test scripts:**
-   ```bash
-   chmod +x backend/api/tests/*.sh
-   ```
 
 ## 📊 Model Information
 

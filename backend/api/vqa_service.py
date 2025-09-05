@@ -26,6 +26,15 @@ class VQAService:
         Returns:
             Answer to the question
         """
+        # Convert image to RGB if it has RGBA format (ViLT expects RGB)
+        if image.mode == 'RGBA':
+            # Create a white background
+            background = Image.new('RGB', image.size, (255, 255, 255))
+            background.paste(image, mask=image.split()[-1])  # Use alpha channel as mask
+            image = background
+        elif image.mode != 'RGB':
+            image = image.convert('RGB')
+        
         # Encode image and question for the model
         model_inputs = self.processor(image, question, return_tensors="pt")
         
