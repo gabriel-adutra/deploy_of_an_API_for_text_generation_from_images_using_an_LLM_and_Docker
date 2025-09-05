@@ -2,12 +2,15 @@ version: '3.8'
 
 services:
   vqa-api:
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: vqa-container
     ports:
       - "3000:3000"
-    container_name: vqa-container
     volumes:
-      - ./backend:/app/backend  # Mount source code for development
+      # Mount log directory for easy access to logs
+      - ./logs:/var/log/vqa
     environment:
       - PYTHONUNBUFFERED=1
     restart: unless-stopped
@@ -16,5 +19,4 @@ services:
       interval: 30s
       timeout: 10s
       retries: 3
-      start_period: 40s
-
+      start_period: 60s

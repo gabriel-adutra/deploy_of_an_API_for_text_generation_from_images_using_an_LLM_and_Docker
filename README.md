@@ -16,7 +16,7 @@ A REST API that uses ViLT (Vision-and-Language Transformer) to answer questions 
 
 ## 🛠️ Installation & Setup
 
-### Using Docker
+### Using Docker Compose (Recommended)
 
 #### 1. Clone the Repository
 ```bash
@@ -24,27 +24,49 @@ git clone https://github.com/gabriel-adutra/deploy_of_an_API_for_text_generation
 cd deploy_of_an_API_for_text_generation_from_images_using_an_LLM_and_Docker
 ```
 
-#### 2. Build the Docker Image
+#### 2. Build and Run with Docker Compose
 ```bash
-docker build -t vqa-api:latest .
+docker-compose up --build
 ```
 
-#### 3. Run the Container
+This will:
+- Build the Docker image automatically
+- Start the container
+- Mount the logs directory for easy access
+- Set up health checks
+
+#### 3. Run in Background (Detached Mode)
 ```bash
-docker run -dit --name vqa-container -p 3000:3000 vqa-api:latest
+docker-compose up --build -d
 ```
 
 #### 4. Check if the API is Running
 ```bash
-docker logs vqa-container
+docker-compose logs -f
 ```
 
-You should see output indicating the FastAPI server is running on port 3000.
+#### 5. Stop the Services
+```bash
+docker-compose down
+```
 
 **Note**: The first run will download the ViLT model (~1.5GB), which may take a few minutes.
 
-#### 5. Stop the Container (when needed)
+### Using Docker (Alternative)
+
+If you prefer to use Docker directly:
+
 ```bash
+# Build the Docker image
+docker build -t vqa-api:latest .
+
+# Run the container
+docker run -d -p 3000:3000 --name vqa-container vqa-api:latest
+
+# Check logs
+docker logs vqa-container
+
+# Stop and remove
 docker stop vqa-container
 docker rm vqa-container
 ```
@@ -149,7 +171,9 @@ Submit a question and image for visual question answering.
 │           ├── car.png         # Sample car image (yellow)
 │           ├── dog.png         # Sample dog image (eating)
 │           └── elephant.png    # Sample elephant image (green)
+├── logs/                       # Local logs directory (mounted from container)
 ├── Dockerfile                  # Container configuration
+├── docker-compose.yml          # Docker Compose configuration
 ├── requirements.txt            # Python dependencies
 └── README.md                  # This file
 ```
