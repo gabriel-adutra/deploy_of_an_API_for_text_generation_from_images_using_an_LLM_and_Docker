@@ -19,6 +19,9 @@ ENV PYTHONUNBUFFERED=1
 # Set working directory
 WORKDIR /app
 
+# Create log directory
+RUN mkdir -p /var/log/vqa
+
 # Copy requirements first to leverage Docker cache
 COPY requirements.txt .
 

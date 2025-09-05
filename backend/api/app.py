@@ -3,6 +3,30 @@ from fastapi import FastAPI, UploadFile, File, Form
 from PIL import Image
 import io
 import uvicorn
+import logging
+import os
+
+# Create log directory if it doesn't exist
+os.makedirs("/var/log/vqa", exist_ok=True)
+
+# Configure logging
+logging.basicConfig(
+    level=logging.DEBUG,
+    format='%(asctime)s - %(filename)s:%(lineno)d - %(levelname)s - %(message)s',
+    handlers=[
+        logging.FileHandler('/var/log/vqa/backend.log'),
+        logging.StreamHandler()
+    ]
+)
+
+# Disable noisy loggers
+logging.getLogger('filelock').setLevel(logging.WARNING)
+logging.getLogger('urllib3').setLevel(logging.WARNING)
+logging.getLogger('asyncio').setLevel(logging.WARNING)
+logging.getLogger('python_multipart').setLevel(logging.WARNING)
+logging.getLogger('PIL').setLevel(logging.WARNING)
+logging.getLogger('transformers').setLevel(logging.WARNING)
+
 from vqa_service import vqa_service
 
 
@@ -12,7 +36,8 @@ app = FastAPI()
 # API root endpoint - returns service information
 @app.get("/")
 def get_api_info():
-    return {
+    logging.info(" / endpoint is called.")
+    api_data = {
         "name": "Visual Question Answering API",
         "description": "A REST API that uses ViLT (Vision-and-Language Transformer) to answer questions about images",
         "version": "1.0.0",
@@ -36,25 +61,37 @@ def get_api_info():
         },
         "status": "active"
     }
+    logging.info(f"/ endpoint is returning: {api_data}")
+    return api_data
 
 
 
 # Visual Question Answering endpoint
 @app.post("/vqa")
 async def answer_question_about_image(question: str = Form(...), image: UploadFile = File(...)):
-    # Convert uploaded file to PIL Image
-    image_bytes = await image.read()
-    pil_image = Image.open(io.BytesIO(image_bytes))
+    logging.info(f"VQA is called with question: '{question}' and image: {image.filename}")
     
-    # Get answer from VQA service
-    answer = vqa_service.answer_question(question, pil_image)
-    return {"answer": answer}
+    try:
+        # Convert uploaded file to PIL Image
+        image_bytes = await image.read()
+        pil_image = Image.open(io.BytesIO(image_bytes))
+        logging.info(f"Image processed - Size: {pil_image.size}, Mode: {pil_image.mode}")
+        
+        # Get answer from VQA service
+        answer = vqa_service.answer_question(question, pil_image)
+        logging.info(f"VQA is returning: {{'answer': '{answer}'}}")
+        
+        return {"answer": answer}
+    except Exception as e:
+        logging.error(f"Error processing VQA request: {str(e)}")
+        raise
 
 
 
 
 # Start the FastAPI server
 if __name__ == "__main__":
+    logging.info("Starting VQA API server on host 0.0.0.0:3000")
     uvicorn.run(app, host="0.0.0.0", port=3000)
 
 
