@@ -1,0 +1,32 @@
+version: '3.9'
+
+services:
+  vqa-backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: vqa-backend-container
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./backend/logs:/var/log/vqa
+    environment:
+      - PYTHONUNBUFFERED=1
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+
+  vqa-frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: vqa-frontend-container
+    ports:
+      - "8080:80"
+    depends_on:
+      - vqa-backend
+
