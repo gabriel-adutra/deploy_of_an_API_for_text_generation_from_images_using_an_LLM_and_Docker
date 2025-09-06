@@ -8,9 +8,6 @@ services:
     container_name: vqa-container
     ports:
       - "3000:3000"
-    volumes:
-      # Mount log directory for easy access to logs
-      - ./logs:/var/log/vqa
     environment:
       - PYTHONUNBUFFERED=1
     restart: unless-stopped

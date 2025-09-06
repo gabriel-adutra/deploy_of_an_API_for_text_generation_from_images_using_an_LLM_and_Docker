@@ -8,8 +8,6 @@ services:
     container_name: vqa-backend-container
     ports:
       - "3000:3000"
-    volumes:
-      - ./backend/logs:/var/log/vqa
     environment:
       - PYTHONUNBUFFERED=1
     restart: unless-stopped
