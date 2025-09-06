@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  vqa-frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: vqa-frontend-container
+    ports:
+      - "8080:80"
+    restart: unless-stopped

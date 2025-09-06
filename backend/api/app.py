@@ -1,5 +1,6 @@
 
 from fastapi import FastAPI, UploadFile, File, Form
+from fastapi.middleware.cors import CORSMiddleware
 from PIL import Image
 import io
 import uvicorn
@@ -31,6 +32,16 @@ from vqa_service import vqa_service
 
 
 app = FastAPI()
+
+
+# Allow frontend container or localhost to access this API
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Ou ["http://localhost:8080"] para restringir ao frontend
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 
 # API root endpoint - returns service information

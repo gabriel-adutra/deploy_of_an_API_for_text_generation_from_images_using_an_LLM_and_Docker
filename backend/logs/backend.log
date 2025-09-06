@@ -1,0 +1,124 @@
+2025-09-05 18:17:21,953 - vqa_service.py:17 - INFO - Loading ViLT model components...
+2025-09-05 18:17:25,663 - vqa_service.py:20 - INFO - ViLT processor loaded successfully
+2025-09-05 18:18:09,267 - vqa_service.py:23 - INFO - ViLT model loaded successfully
+2025-09-05 18:18:09,272 - app.py:94 - INFO - Starting VQA API server on host 0.0.0.0:3000
+2025-09-06 02:33:42,642 - vqa_service.py:17 - INFO - Loading ViLT model components...
+2025-09-06 02:33:45,872 - vqa_service.py:20 - INFO - ViLT processor loaded successfully
+2025-09-06 02:34:28,820 - vqa_service.py:23 - INFO - ViLT model loaded successfully
+2025-09-06 02:34:28,824 - app.py:94 - INFO - Starting VQA API server on host 0.0.0.0:3000
+2025-09-06 02:35:07,519 - app.py:39 - INFO -  / endpoint is called.
+2025-09-06 02:35:07,519 - app.py:64 - INFO - / endpoint is returning: {'name': 'Visual Question Answering API', 'description': 'A REST API that uses ViLT (Vision-and-Language Transformer) to answer questions about images', 'version': '1.0.0', 'endpoints': {'GET /': 'API information and documentation', 'POST /vqa': 'Submit a question and image for analysis'}, 'model': 'dandelin/vilt-b32-finetuned-vqa', 'usage': {'method': 'POST', 'endpoint': '/vqa', 'content_type': 'multipart/form-data', 'parameters': {'question': 'Question about the image (string)', 'image': 'Image file (binary)'}, 'example': {'question': 'What color is the car?', 'image': 'car_image.jpg'}}, 'status': 'active'}
+2025-09-06 03:00:00,111 - vqa_service.py:17 - INFO - Loading ViLT model components...
+2025-09-06 03:00:03,383 - vqa_service.py:20 - INFO - ViLT processor loaded successfully
+2025-09-06 03:00:46,547 - vqa_service.py:23 - INFO - ViLT model loaded successfully
+2025-09-06 03:00:46,551 - app.py:94 - INFO - Starting VQA API server on host 0.0.0.0:3000
+2025-09-06 03:13:17,204 - vqa_service.py:17 - INFO - Loading ViLT model components...
+2025-09-06 03:13:20,253 - vqa_service.py:20 - INFO - ViLT processor loaded successfully
+2025-09-06 03:14:03,474 - vqa_service.py:23 - INFO - ViLT model loaded successfully
+2025-09-06 03:14:03,478 - app.py:94 - INFO - Starting VQA API server on host 0.0.0.0:3000
+2025-09-06 03:14:13,941 - app.py:39 - INFO -  / endpoint is called.
+2025-09-06 03:14:13,941 - app.py:64 - INFO - / endpoint is returning: {'name': 'Visual Question Answering API', 'description': 'A REST API that uses ViLT (Vision-and-Language Transformer) to answer questions about images', 'version': '1.0.0', 'endpoints': {'GET /': 'API information and documentation', 'POST /vqa': 'Submit a question and image for analysis'}, 'model': 'dandelin/vilt-b32-finetuned-vqa', 'usage': {'method': 'POST', 'endpoint': '/vqa', 'content_type': 'multipart/form-data', 'parameters': {'question': 'Question about the image (string)', 'image': 'Image file (binary)'}, 'example': {'question': 'What color is the car?', 'image': 'car_image.jpg'}}, 'status': 'active'}
+2025-09-06 03:14:30,140 - app.py:72 - INFO - VQA is called with question: 'Which color is the car in the image?' and image: car.png
+2025-09-06 03:14:30,156 - app.py:78 - INFO - Image processed - Size: (649, 485), Mode: RGBA
+2025-09-06 03:14:30,156 - vqa_service.py:77 - DEBUG - Processing question: 'Which color is the car in the image?' with image size: (649, 485), mode: RGBA
+2025-09-06 03:14:30,156 - vqa_service.py:31 - DEBUG - Converting RGBA image to RGB
+2025-09-06 03:14:30,179 - vqa_service.py:47 - DEBUG - Encoding image and question for model
+2025-09-06 03:14:30,222 - vqa_service.py:51 - DEBUG - Running model inference
+2025-09-06 03:14:30,826 - vqa_service.py:59 - DEBUG - Model prediction completed - Answer: 'yellow'
+2025-09-06 03:14:30,828 - app.py:82 - INFO - VQA is returning: {'answer': 'yellow'}
+2025-09-06 03:27:07,355 - vqa_service.py:17 - INFO - Loading ViLT model components...
+2025-09-06 03:27:10,421 - vqa_service.py:20 - INFO - ViLT processor loaded successfully
+2025-09-06 03:27:53,086 - vqa_service.py:23 - INFO - ViLT model loaded successfully
+2025-09-06 03:27:53,091 - app.py:94 - INFO - Starting VQA API server on host 0.0.0.0:3000
+2025-09-06 03:29:06,185 - app.py:72 - INFO - VQA is called with question: 'O que o gato está fazendo?' and image: Captura de tela de 2025-09-06 00-28-39.png
+2025-09-06 03:29:06,214 - app.py:78 - INFO - Image processed - Size: (480, 379), Mode: RGBA
+2025-09-06 03:29:06,215 - vqa_service.py:77 - DEBUG - Processing question: 'O que o gato está fazendo?' with image size: (480, 379), mode: RGBA
+2025-09-06 03:29:06,215 - vqa_service.py:31 - DEBUG - Converting RGBA image to RGB
+2025-09-06 03:29:06,240 - vqa_service.py:47 - DEBUG - Encoding image and question for model
+2025-09-06 03:29:06,258 - vqa_service.py:51 - DEBUG - Running model inference
+2025-09-06 03:29:06,630 - vqa_service.py:59 - DEBUG - Model prediction completed - Answer: 'no'
+2025-09-06 03:29:06,631 - app.py:82 - INFO - VQA is returning: {'answer': 'no'}
+2025-09-06 03:29:40,997 - app.py:72 - INFO - VQA is called with question: 'Que animal é esse?' and image: Captura de tela de 2025-09-06 00-28-39.png
+2025-09-06 03:29:40,998 - app.py:78 - INFO - Image processed - Size: (480, 379), Mode: RGBA
+2025-09-06 03:29:40,999 - vqa_service.py:77 - DEBUG - Processing question: 'Que animal é esse?' with image size: (480, 379), mode: RGBA
+2025-09-06 03:29:40,999 - vqa_service.py:31 - DEBUG - Converting RGBA image to RGB
+2025-09-06 03:29:41,039 - vqa_service.py:47 - DEBUG - Encoding image and question for model
+2025-09-06 03:29:41,070 - vqa_service.py:51 - DEBUG - Running model inference
+2025-09-06 03:29:41,404 - vqa_service.py:59 - DEBUG - Model prediction completed - Answer: 'yes'
+2025-09-06 03:29:41,405 - app.py:82 - INFO - VQA is returning: {'answer': 'yes'}
+2025-09-06 03:32:15,836 - app.py:39 - INFO -  / endpoint is called.
+2025-09-06 03:32:15,837 - app.py:64 - INFO - / endpoint is returning: {'name': 'Visual Question Answering API', 'description': 'A REST API that uses ViLT (Vision-and-Language Transformer) to answer questions about images', 'version': '1.0.0', 'endpoints': {'GET /': 'API information and documentation', 'POST /vqa': 'Submit a question and image for analysis'}, 'model': 'dandelin/vilt-b32-finetuned-vqa', 'usage': {'method': 'POST', 'endpoint': '/vqa', 'content_type': 'multipart/form-data', 'parameters': {'question': 'Question about the image (string)', 'image': 'Image file (binary)'}, 'example': {'question': 'What color is the car?', 'image': 'car_image.jpg'}}, 'status': 'active'}
+2025-09-06 03:35:44,215 - vqa_service.py:17 - INFO - Loading ViLT model components...
+2025-09-06 03:35:47,192 - vqa_service.py:20 - INFO - ViLT processor loaded successfully
+2025-09-06 03:36:31,373 - vqa_service.py:23 - INFO - ViLT model loaded successfully
+2025-09-06 03:36:31,377 - app.py:105 - INFO - Starting VQA API server on host 0.0.0.0:3000
+2025-09-06 03:37:11,399 - app.py:83 - INFO - VQA is called with question: 'Que animal é esse?' and image: dog.png
+2025-09-06 03:37:11,412 - app.py:89 - INFO - Image processed - Size: (699, 476), Mode: RGBA
+2025-09-06 03:37:11,412 - vqa_service.py:77 - DEBUG - Processing question: 'Que animal é esse?' with image size: (699, 476), mode: RGBA
+2025-09-06 03:37:11,412 - vqa_service.py:31 - DEBUG - Converting RGBA image to RGB
+2025-09-06 03:37:11,437 - vqa_service.py:47 - DEBUG - Encoding image and question for model
+2025-09-06 03:37:11,457 - vqa_service.py:51 - DEBUG - Running model inference
+2025-09-06 03:37:12,024 - vqa_service.py:59 - DEBUG - Model prediction completed - Answer: 'dog'
+2025-09-06 03:37:12,026 - app.py:93 - INFO - VQA is returning: {'answer': 'dog'}
+2025-09-06 03:37:31,710 - app.py:83 - INFO - VQA is called with question: 'Whats the dog are doing?' and image: dog.png
+2025-09-06 03:37:31,711 - app.py:89 - INFO - Image processed - Size: (699, 476), Mode: RGBA
+2025-09-06 03:37:31,712 - vqa_service.py:77 - DEBUG - Processing question: 'Whats the dog are doing?' with image size: (699, 476), mode: RGBA
+2025-09-06 03:37:31,712 - vqa_service.py:31 - DEBUG - Converting RGBA image to RGB
+2025-09-06 03:37:31,775 - vqa_service.py:47 - DEBUG - Encoding image and question for model
+2025-09-06 03:37:31,800 - vqa_service.py:51 - DEBUG - Running model inference
+2025-09-06 03:37:32,182 - vqa_service.py:59 - DEBUG - Model prediction completed - Answer: 'eating'
+2025-09-06 03:37:32,194 - app.py:93 - INFO - VQA is returning: {'answer': 'eating'}
+2025-09-06 03:37:49,825 - app.py:83 - INFO - VQA is called with question: 'What is the animal?' and image: Captura de tela de 2025-09-06 00-28-39.png
+2025-09-06 03:37:49,826 - app.py:89 - INFO - Image processed - Size: (480, 379), Mode: RGBA
+2025-09-06 03:37:49,826 - vqa_service.py:77 - DEBUG - Processing question: 'What is the animal?' with image size: (480, 379), mode: RGBA
+2025-09-06 03:37:49,827 - vqa_service.py:31 - DEBUG - Converting RGBA image to RGB
+2025-09-06 03:37:49,862 - vqa_service.py:47 - DEBUG - Encoding image and question for model
+2025-09-06 03:37:49,899 - vqa_service.py:51 - DEBUG - Running model inference
+2025-09-06 03:37:50,250 - vqa_service.py:59 - DEBUG - Model prediction completed - Answer: 'cat'
+2025-09-06 03:37:50,251 - app.py:93 - INFO - VQA is returning: {'answer': 'cat'}
+2025-09-06 03:38:10,686 - app.py:83 - INFO - VQA is called with question: 'What he is doing?' and image: Captura de tela de 2025-09-06 00-28-39.png
+2025-09-06 03:38:10,687 - app.py:89 - INFO - Image processed - Size: (480, 379), Mode: RGBA
+2025-09-06 03:38:10,687 - vqa_service.py:77 - DEBUG - Processing question: 'What he is doing?' with image size: (480, 379), mode: RGBA
+2025-09-06 03:38:10,688 - vqa_service.py:31 - DEBUG - Converting RGBA image to RGB
+2025-09-06 03:38:10,730 - vqa_service.py:47 - DEBUG - Encoding image and question for model
+2025-09-06 03:38:10,752 - vqa_service.py:51 - DEBUG - Running model inference
+2025-09-06 03:38:11,082 - vqa_service.py:59 - DEBUG - Model prediction completed - Answer: 'drinking'
+2025-09-06 03:38:11,091 - app.py:93 - INFO - VQA is returning: {'answer': 'drinking'}
+2025-09-06 03:46:29,551 - app.py:83 - INFO - VQA is called with question: 'This is a man or woman?' and image: Captura de tela de 2025-09-06 00-46-11.png
+2025-09-06 03:46:29,552 - app.py:89 - INFO - Image processed - Size: (637, 633), Mode: RGBA
+2025-09-06 03:46:29,552 - vqa_service.py:77 - DEBUG - Processing question: 'This is a man or woman?' with image size: (637, 633), mode: RGBA
+2025-09-06 03:46:29,552 - vqa_service.py:31 - DEBUG - Converting RGBA image to RGB
+2025-09-06 03:46:29,600 - vqa_service.py:47 - DEBUG - Encoding image and question for model
+2025-09-06 03:46:29,623 - vqa_service.py:51 - DEBUG - Running model inference
+2025-09-06 03:46:29,909 - vqa_service.py:59 - DEBUG - Model prediction completed - Answer: 'man'
+2025-09-06 03:46:29,910 - app.py:93 - INFO - VQA is returning: {'answer': 'man'}
+2025-09-06 03:46:50,708 - app.py:83 - INFO - VQA is called with question: 'Is this a man or woman?' and image: Captura de tela de 2025-09-06 00-46-11.png
+2025-09-06 03:46:50,711 - app.py:89 - INFO - Image processed - Size: (637, 633), Mode: RGBA
+2025-09-06 03:46:50,711 - vqa_service.py:77 - DEBUG - Processing question: 'Is this a man or woman?' with image size: (637, 633), mode: RGBA
+2025-09-06 03:46:50,712 - vqa_service.py:31 - DEBUG - Converting RGBA image to RGB
+2025-09-06 03:46:50,801 - vqa_service.py:47 - DEBUG - Encoding image and question for model
+2025-09-06 03:46:50,821 - vqa_service.py:51 - DEBUG - Running model inference
+2025-09-06 03:46:51,097 - vqa_service.py:59 - DEBUG - Model prediction completed - Answer: 'man'
+2025-09-06 03:46:51,100 - app.py:93 - INFO - VQA is returning: {'answer': 'man'}
+2025-09-06 03:48:05,346 - app.py:50 - INFO -  / endpoint is called.
+2025-09-06 03:48:05,347 - app.py:75 - INFO - / endpoint is returning: {'name': 'Visual Question Answering API', 'description': 'A REST API that uses ViLT (Vision-and-Language Transformer) to answer questions about images', 'version': '1.0.0', 'endpoints': {'GET /': 'API information and documentation', 'POST /vqa': 'Submit a question and image for analysis'}, 'model': 'dandelin/vilt-b32-finetuned-vqa', 'usage': {'method': 'POST', 'endpoint': '/vqa', 'content_type': 'multipart/form-data', 'parameters': {'question': 'Question about the image (string)', 'image': 'Image file (binary)'}, 'example': {'question': 'What color is the car?', 'image': 'car_image.jpg'}}, 'status': 'active'}
+2025-09-06 03:49:11,634 - app.py:83 - INFO - VQA is called with question: 'Is this a man or woman?' and image: Captura de tela de 2025-09-06 00-46-11.png
+2025-09-06 03:49:11,636 - app.py:89 - INFO - Image processed - Size: (637, 633), Mode: RGBA
+2025-09-06 03:49:11,636 - vqa_service.py:77 - DEBUG - Processing question: 'Is this a man or woman?' with image size: (637, 633), mode: RGBA
+2025-09-06 03:49:11,636 - vqa_service.py:31 - DEBUG - Converting RGBA image to RGB
+2025-09-06 03:49:11,676 - vqa_service.py:47 - DEBUG - Encoding image and question for model
+2025-09-06 03:49:11,689 - vqa_service.py:51 - DEBUG - Running model inference
+2025-09-06 03:49:11,980 - vqa_service.py:59 - DEBUG - Model prediction completed - Answer: 'man'
+2025-09-06 03:49:11,981 - app.py:93 - INFO - VQA is returning: {'answer': 'man'}
+2025-09-06 04:43:02,930 - vqa_service.py:17 - INFO - Loading ViLT model components...
+2025-09-06 04:43:06,504 - vqa_service.py:20 - INFO - ViLT processor loaded successfully
+2025-09-06 04:43:50,087 - vqa_service.py:23 - INFO - ViLT model loaded successfully
+2025-09-06 04:43:50,091 - app.py:105 - INFO - Starting VQA API server on host 0.0.0.0:3000
+2025-09-06 04:44:51,751 - app.py:83 - INFO - VQA is called with question: 'What the cat color? ' and image: Captura de tela de 2025-09-06 00-28-39.png
+2025-09-06 04:44:51,769 - app.py:89 - INFO - Image processed - Size: (480, 379), Mode: RGBA
+2025-09-06 04:44:51,769 - vqa_service.py:77 - DEBUG - Processing question: 'What the cat color? ' with image size: (480, 379), mode: RGBA
+2025-09-06 04:44:51,769 - vqa_service.py:31 - DEBUG - Converting RGBA image to RGB
+2025-09-06 04:44:51,784 - vqa_service.py:47 - DEBUG - Encoding image and question for model
+2025-09-06 04:44:51,810 - vqa_service.py:51 - DEBUG - Running model inference
+2025-09-06 04:44:55,618 - vqa_service.py:59 - DEBUG - Model prediction completed - Answer: 'black'
+2025-09-06 04:44:55,851 - app.py:93 - INFO - VQA is returning: {'answer': 'black'}
